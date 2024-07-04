@@ -56,5 +56,13 @@ const populateQuestions = () => {
     const titleBlock = document.createElement('div');
     titleBlock.id = question.id;
     titleBlock.classList.add('title-block');
+
+    const titleHeading = document.createElement('h2');
+    titleHeading.textContent = question.text;
+
+    titleBlock.append(titleHeading);
+    questionDisplay.append(titleBlock);
   })
 }
+
+populateQuestions();
