@@ -62,7 +62,27 @@ const populateQuestions = () => {
 
     titleBlock.append(titleHeading);
     questionDisplay.append(titleBlock);
+
+    const answersBlock = document.createElement('div');
+    answersBlock.id = questions.id + "-questions";
+    answersBlock.classList.add('answer-options');
+
+    question.answers.forEach(answer => {
+      const answerBlock = document.createElement('div');
+      answerBlock.classList.add('answer-block');
+      answerBlock.addEventListener('click', handleClick);
+
+      const answerImage = document.createElement('img');
+      answerImage.setAttribute('src', answer.image);
+      answerImage.setAttribute('alt', answer.alt);
+    });
+
+    questionDisplay.apppend(answersBlock);
   })
 }
 
 populateQuestions();
+
+const handleClick = () => {
+  console.log('click');
+}
