@@ -70,7 +70,7 @@ const populateQuestions = () => {
     question.answers.forEach(answer => {
       const answerBlock = document.createElement('div');
       answerBlock.classList.add('answer-block');
-      answerBlock.addEventListener('click', handleClick);
+      answerBlock.addEventListener('click', () => handleClick(question.id, answer.text));
 
       const answerImage = document.createElement('img');
       answerImage.setAttribute('src', answer.image);
@@ -83,6 +83,7 @@ const populateQuestions = () => {
       
       const imageLink = document.createElement('a');
       imageLink.setAttribute('href', answer.credit);
+      imageLink.textContent = answer.credit;
 
       const sourceLink = document.createElement('a');
       sourceLink.textContent = 'Unsplash';
@@ -100,6 +101,6 @@ const populateQuestions = () => {
 
 populateQuestions();
 
-const handleClick = () => {
-  console.log('click');
+const handleClick = (questionId, chosenAnswer) => {
+  console.log(questionId + ', ' + chosenAnswer);
 }
